@@ -22,7 +22,7 @@ def template(gamen)
   when :post_search
     "../bunsyo/JTemplate_BunsyoSearch_post.html"
   when :result
-    "../bunsyo/JTemplate_Searchresult_Ajax.html"
+    "../bunsyo/JTemplate_Searchresult.html"
   when :detail
     "../bunsyo/JTemplate_BunsyoSyosai.html"
   when :error
