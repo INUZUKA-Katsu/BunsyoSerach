@@ -1,0 +1,206 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+    <meta http-equiv="Content-Style-Type" content="text/css">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <meta content="DENY" http-equiv="X-FRAME-OPTIONS">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>横浜市　行政文書目録検索　検索結果画面</title>
+    <link type="text/css" href="../css/jstyle.css" rel="stylesheet">
+    <link media="screen,tv,projection,print" type="text/css" href="http://www.city.yokohama.jp/coparts/css/base.css" title="横浜市Webページ共通基本スタイル" rel="Stylesheet">
+    <script type="text/javascript" src="../js/SearchResult.js"></script>
+    <style type="text/css">
+    </style>
+  </head>
+  <body>
+    <p class="skiplink"><a href="#honbun">本文へジャンプ</a></p>
+    <div id="common-header">
+      <span id="common-header-logo">
+        <a href="http://www.city.yokohama.jp/">
+          <img alt="横浜市" height="30" width="224" src="http://www.city.yokohama.jp/coparts/header/hdr03_logo.ja.gif">
+        </a>
+      </span>
+      <span class="common-header-splitter"> - </span>
+      <span id="common-header-navi">
+        <a href="http://www.city.yokohama.jp/">
+           <img alt="トップメニュー" height="30" width="100" src="http://www.city.yokohama.jp/coparts/header/hdr03_top.ja.gif">
+        </a>
+        <span class="common-header-splitter">|</span>
+        <a href="http://www.city.yokohama.jp/search/">
+          <img alt="検索" height="30" width="100" src="http://www.city.yokohama.jp/coparts/header/hdr03_search.ja.gif">
+        </a>
+      </span>
+    </div>
+    <hr>
+    <div class="header-comment">
+      <a href="http://www.city.yokohama.lg.jp/shimin/shiminjoho/kensaku/20160301132738.html">JIS X 8341-3:2010に基づく試験結果</a>
+    <br>
+      <a href="http://www.city.yokohama.lg.jp/shimin/shiminjoho/kensaku/kensakutebiki.html">利用手引</a>
+      <span class="leftspace1">
+      <a href="http://www.city.yokohama.lg.jp/shimin/shiminjoho/kensaku/kensaku-qa.html">よくあるご質問</a>
+      </span>
+      <span class="leftspace1">
+      <a href="http://www.city.yokohama.lg.jp/shimin/shiminjoho/kensaku/itguide.html">開示請求とは</a>
+      </span>
+    </div>
+    <span class="skiplink"><a name="honbun">ここから本文です。</a></span>
+    <h1>行政文書目録検索<span>検索結果一覧</span></h1>
+    <hr>
+    <form method="post" action="SearchResult" name="SearchResult" accept-charset="UTF-8">
+      <p>
+        <%=hidden_input%>
+      </p>
+      <a name="main"></a>
+      <h2 class="result"><span>開示請求について</span></h2>
+        <p class="result">
+          開示請求をする場合には、
+          <a target="_blank" href="http://www.e-shinsei.city.yokohama.lg.jp/yokohama/">電子申請サービスのページ</a>
+          で手続きを行ってください。
+        </p>
+        <p class="result">なお、開示請求をする場合には、電子申請サービスへの利用者登録が必要です。</p>
+        <p class="result">電子申請サービスで開示請求をする際の文書件名の誤入力を防ぐため、この画面の開示請求する文書件名をコピーし、</p>
+        <p class="result">電子申請サービスのページ・請求書入力画面の行政文書名詳細入力欄に、コピーした文書件名を貼り付ける方法をお勧めします。</p>
+
+      <h2 class="result inline0">検索条件</h2>
+      <p class="result inline1">キーワードの追加入力可。</p>
+      <div id="result-top">
+        <div class="row">
+          <div class="th">
+            <label for="and_key">キーワード：AND条件</label>
+          </div>
+          <div class="td">
+            <input type="text" name="DISP_ANDKEY" id="and_key" value="<%=disp_andkey%>">
+          </div>
+        </div>
+        <div class="row">
+          <div class="th">
+            <label for="or_key">キーワード：OR条件</label>
+          </div>
+          <div class="td">
+            <input type="text" name="DISP_ORKEY" id="or_key" value="<%=disp_orkey%>">
+          </div>
+        </div>
+        <div class="row">
+          <div class="th">文書保有課</div>
+          <div class="td"><%=disp_hoyuka%></div>
+        </div>
+        <div class="row">
+          <div class="th">文書分類（作成課）</div>
+          <div class="td"><%=disp_bunrui%></div>
+        </div>
+        <div class="row">
+          <div class="th">供覧・決裁完了年月</div>
+          <div class="td"><%=disp_kyoranbi%></div>
+        </div>
+      </div>
+      <p class="result">※キーワードを入力して<span class="kakomi">絞込み検索</span>ボタンをクリックすると、絞込み検索が行えます。</p>
+      <div class="shibori_komi">
+         <input value="絞込み検索" name="btnSEARCH" type="submit">
+         <input value="条件入力画面に戻る" name="ToBunsyoSearch" type="submit">
+      </div>
+
+      <h2 class="result inline0"><span>検索結果</span></h2>
+      <p class="result red strong inline1"> <%=result_message%></p>
+      <p class="result shift">※項目タイトルの
+        <img src="../image/sita_b.gif" alt="下向き" class="sort">
+        <img src="../image/ue_b.gif" alt="上向き" class="sort">
+        をクリックするとソートされ表示順序が変わります（
+        <img src="../image/sita_b.gif" alt="下向き" class="sort">
+        降順
+        <img src="../image/ue_b.gif" alt="上向き" class="sort">
+        昇順）
+      </p>
+      <table id="result-bottom" summary="文書件名、年度、文書番号、保有課、決裁年月日、保存期間">
+        <caption>検索結果一覧表</caption>
+        <thead>
+          <tr>
+            <th class="result_th1">No.</th>
+            <th class="result_th2">文書件名
+              <a onClick="jf_sort('DESCEND', 'biz_bunsyomei');return false;" href="../cgi-bin/Searchresult.cgi" class="sort desc"><img src="../image/sita_a.gif" alt="降順ソート" class="sort"></a>
+              <a onClick="jf_sort('ASCEND', 'biz_bunsyomei');return false;" href="../cgi-bin/Searchresult.cgi" class="sort asc"><img src="../image/ue_a.gif" alt="昇順ソート" class="sort"></a>
+            </th>
+            <th class="result_th3">作成年度
+              <a onClick="jf_sort('DESCEND', 'biz_szknendo');return false;" href="../cgi-bin/Searchresult.cgi" class="sort desc"><img src="../image/sita_a.gif" alt="降順ソート" class="sort"></a>
+              <a onClick="jf_sort('ASCEND', 'biz_szknendo');return false;" href="../cgi-bin/Searchresult.cgi" class="sort asc"><img src="../image/ue_a.gif" alt="昇順ソート" class="sort"></a>
+            </th>
+            <th class="result_th4">文書番号
+              <a onClick="jf_sort('DESCEND', 'biz_bunsyobango');return false;" href="../cgi-bin/Searchresult.cgi" class="sort desc"><img src="../image/sita_a.gif" alt="降順ソート" class="sort"></a>
+              <a onClick="jf_sort('ASCEND', 'biz_bunsyobango');return false;" href="../cgi-bin/Searchresult.cgi" class="sort asc"><img src="../image/ue_a.gif" alt="昇順ソート" class="sort"></a>
+            </th>
+            <th class="result_th5">文書保有課
+              <a onClick="jf_sort('DESCEND', 'biz_kikou1jun');return false;" href="../cgi-bin/Searchresult.cgi" class="sort desc"><img src="../image/sita_a.gif" alt="降順ソート" class="sort"></a>
+              <a onClick="jf_sort('ASCEND', 'biz_kikou1jun');return false;" href="../cgi-bin/Searchresult.cgi" class="sort asc"><img src="../image/ue_a.gif" alt="昇順ソート" class="sort"></a>
+            </th>
+            <th class="result_th6">供覧・決裁完了年月日
+              <a onClick="jf_sort('DESCEND', 'biz_kyoranbi');return false;" href="../cgi-bin/Searchresult.cgi" class="sort desc"><img src="../image/sita_a.gif" alt="降順ソート" class="sort"></a>
+              <a onClick="jf_sort('ASCEND', 'biz_kyoranbi');return false;" href="../cgi-bin/Searchresult.cgi" class="sort asc"><img src="../image/ue_a.gif" alt="昇順ソート" class="sort"></a>
+            </th>
+            <th class="result_th7">保存期間
+              <a onClick="jf_sort('DESCEND', 'biz_bunruicd5');return false;" href="../cgi-bin/Searchresult.cgi" class="sort desc"><img src="../image/sita_a.gif" alt="降順ソート" class="sort"></a>
+              <a onClick="jf_sort('ASCEND', 'biz_bunruicd5');return false;" href="../cgi-bin/Searchresult.cgi" class="sort asc"><img src="../image/ue_a.gif" alt="昇順ソート" class="sort"></a>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <%=result_table%>
+        </tbody>
+      </table>
+      <p class="result">
+        <span class="leftspace0"><%=page_num%></span>
+        <span class="leftspace2">
+              <%=btn_prev_page%>
+              <%=btn_next_page%>
+        </span>
+        <span class="leftspace1">
+          <label for="page_kensu">頁表示件数</label>
+          <select onChange="jf_cmbKensu()" name="KENSU" id="page_kensu">
+            <%=kensu%>
+          </select>
+        </span>
+      </p>
+      <div class="submit_bottom">
+        <input value="条件入力画面に戻る" name="ToBunsyoSearch" type="submit">
+      </div>
+    </form>
+    <hr class="margin-top margin-bottom">
+    <div class="footer">
+    <!-- ここから著作権情報と連絡先 -->
+      <address>
+      <div>
+        <span class="block">
+        横浜市市民局市民情報課
+        </span><span>
+          -
+          2005年9月1日
+          作成
+        </span><span>
+          -
+          2016年03月31日
+          更新
+        </span>
+      </div>
+      <div>
+        <span class="block">
+          ご意見・お問合せ
+        </span><span class="block">
+          - <a href="mailto:sh-shiminjoho&#64;city.yokohama.jp">sh-shiminjoho&#64;city.yokohama.jp</a>
+        </span>
+        <span>
+          - 電話: 045-671-3884
+        </span><span>
+          - FAX: 045-664-7201
+        </span>
+      </div>
+        <span>
+          &copy;1997-2016 City of Yokohama.
+        </span>
+        <span>
+          All rights reserved.
+        </span>
+      </address>
+      <!-- ここまで著作権情報と連絡先 -->
+    </div>
+    <!-- ここまでフッタ部分 -->
+  </body>
+</html>

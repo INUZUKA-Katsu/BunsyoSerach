@@ -1,0 +1,551 @@
+/* デバイス共通デザイン */
+      hr{color:#D3D3D3;}
+      /* 検索条件入力画面 */
+      div#keyword,
+      div#bunsyo_hoyuka,
+      div#bunsyo_grouping,
+      div#kessai_kanryo {
+         width           : 99% ;
+      }
+      fieldset {margin:0;}
+
+      /* 検索結果画面の検索条件テーブル */
+      div#result-top{
+         display         : table;
+         width           : 99%;
+         margin          : 0 auto 0.5em auto;
+         border-top      : 1px #000000 solid;
+         border-right    : 1px #000000 solid;
+      }
+      div#result-top div.row {
+         display         : table-row-group;}
+      div#result-top div.td  {
+         display         : table-cell;
+         border-left     : 1px #000000 solid;
+         border-bottom   : 1px #000000 solid;
+         text-align      : left ;
+      }
+      div#result-top div.td input {width:90%;}
+      div#result-top div.th  {
+         display         : table-cell;
+         width           : 20%;
+         min-width       : 12em;
+         padding-left    : 1em;
+         border-left     : 1px #000000 solid;
+         border-bottom   : 1px #000000 solid;
+         text-align      : left ;
+      }
+      .skiplink {position:absolute;left:-9999px;}
+
+/* 以下はPC、タブレット兼用（横幅720px以上の画面に原則として適用される） */
+@media print, screen and (min-width: 720px){
+      h1 span{
+         margin-left     : 0.5em;
+         padding-left    : 0.5em;
+         padding-right   : 0.5em;
+         font-size       : 70%;
+         vertical-align  : super;
+         border-bottom   : solid 2px;
+      }
+
+      h2                        { margin        : 0.5em 0 0.5em 0.5em;
+                                  text-align    : left;
+                                  font-size     : 120%;
+                                  font-weight   : bold;
+                                  color         : black;
+       }
+      h2.joken                  { margin-bottom : 0;
+                                  display       : inline-block;
+      }
+      h2.hyoji                  { margin-bottom : 0.2em;
+      }
+      h2.result                 { margin-top    : 1.5em;
+      }
+      p.result                  { margin        : 0 0.5em;
+                                  line-height   : 130%;
+      }
+      p.result_timeout          { margin-left   : 1em;
+                                  text-align    : left;
+      }
+      /*div                       { text-align    :center;
+                                  margin        :0.2em 0;
+      }*/
+      div.submit_top            { margin        : 0.5em 0 0.5em 10em;
+      }
+      div.submit_bottom         { margin        : 1.5em;
+                                  text-align    : center;
+      }
+      div#joken_title,
+      div#hyoji_title           { max-width     : 78em;
+                                  margin        : 1.5em auto 0 auto;
+      }
+      div#keyword fieldset      { margin        : 0 auto;
+      }
+      div#keyword div           { display       : table;
+                                  margin        : 0 auto;
+      }
+      div#keyword div div       { margin        : 0.1em;
+                                  color         : #EE0000;
+                                  display       : table-row-group;
+      }
+      div#keyword span          { display       : table-cell;
+      }
+      div#keyword input         { width         : 48em;
+                                  display       : table-cell;
+      }
+      div#keyword,
+      div#bunsyo_hoyuka,
+      div#bunsyo_grouping,
+      div#kessai_kanryo         { margin        : 0.5em auto;
+                                  max-width     : 78em;
+                                  text-align    : center;
+      }
+      div#hyoji                 { margin        : 0.5em auto;
+                                  max-width     : 78em;
+                                  width         : 98.8%;
+                                  text-align    : center;
+                                  border-style  : solid;
+                                  border-width  : 1px;
+      }
+      div.shibori_komi          { text-align    : left;
+                                  margin-left   : 0.3em;
+      }
+      div.btn_next              { text-align    : left;
+                                  margin        : 0.5em 0 0.2em 0.3em;
+      }
+      div.result_timeout        { max-width     : 40em;
+                                  margin        : 1em auto;
+      }
+      #cmb_kyoku,
+      #cmb_bu,
+      #cmb_ka,
+      #cmb_nendo,
+      #cmb_syubetu,
+      #cmb_large,
+      #cmb_middle,
+      #cmb_small                  { display          : inline-block;
+      }
+      #cmb_bu,
+      #cmb_ka,
+      #cmb_syubetu,
+      #cmb_middle,
+      #cmb_small                  { padding-left     : 1.5em;
+      }
+      #cmb_nendo,
+      #cmb_syubetu                { margin-bottom    : 0.5em }
+
+      fieldset.joken              { background-color : #F8F8FF;
+      }
+      fieldset.kikan              { border-style     : none;
+                                    padding          : 0;
+      }
+      div#hyoji div               { margin           : 0.5em 0.3em;
+                                    padding          : 0 0 0.5em 0;
+                                    background-color : #F8F8FF;
+      }
+      div#hyoji fieldset          { border-style     : none;
+                                    padding          : 0;
+      }
+      div#hyoji legend            { margin-left      : 0.5em;
+      }
+      div#hyoji div.kensu_title   { text-align       : left ;
+                                    margin-left      : 0.65em;
+                                    margin-bottom    : 0;
+      }
+      legend          { text-align      : left;
+      }
+      legend.margin-b { margin-bottom   : 0.3em;
+      }
+      label.gengo     { padding-left    : 0.3em; }
+      .leftspace1     { padding-left    : 0.5em;
+      }
+      .leftspace2     { padding-left    : 1.5em;
+      }
+      .inline0        { display         : inline-block;
+                        padding-left    : 0;
+      }
+      .inline1        { display         : inline-block;
+                        padding-left    : 1em;
+      }
+      .kara           { vertical-align  : 30%;
+      }
+      .red            { color           : #EE0000;
+      }
+      .strong         { font-weight     : bold;
+      }
+      .left           { text-align      : left;
+      }
+      .center         { text-align      : center;
+      }
+      .margin-top     { margin-top      : 1em
+      }
+      .margin-bottom0 { margin-bottom   : 0
+      }
+      .margin-bottom1 { margin-bottom   : 1em
+      }
+      .l-height       { line-height     : 120%;
+      }
+      .shift          { vertical-align  : -200%;
+      }
+      .kakomi         { border          : solid 1px silver;
+                        border-radius   : 4px;
+                        padding         : 2px;
+      }
+      table           { margin-left     : auto;
+                        margin-right    : auto;
+                        margin-bottom   : 0.2em;
+                        border-collapse : collapse;
+                        empty-cells     : show;
+      }
+      td              { text-align      : left;
+                        padding         : 0 10px;
+      }
+      table#result-bottom         { width           : 99%;               }
+      table#result-bottom,
+      table#result-bottom td,
+      table#result-bottom th      { border          : 1px #000000 solid; }
+      table#result-bottom th      { background-color: #D7EEFF;           }
+      table#result-bottom caption { text-align      : right;             }
+
+      /*結果詳細画面*/
+      div#detail                      { display         : table ;
+                                        width           : 99% ;
+                                        margin          : 1.5em auto;
+                                        border-bottom   : 1px #000000 solid;
+                                        border-left     : 1px #000000 solid;
+      }
+      div#detail .row                 { display         : table-row-group ;
+      }
+      div#detail .th,
+      div#detail .td                  { display         : table-cell;
+                                        border-top      : 1px #000000 solid;
+                                        border-right    : 1px #000000 solid;
+                                        text-align      : left;
+                                        padding         : 0 10px;
+      }
+      div#detail .th                  { width           : 20%;
+                                        padding-left    : 1em;
+                                        background-color: #D7EEFF;
+      }
+      div#detail .td                  { width           : 79%;
+                                        line-height     :120%;
+                                        padding-top     :0.2em;
+                                        padding-bottom  :0.2em;
+      }
+
+      #result-top,
+      #result-bottom {line-height:120%;}
+      #result-top td,
+      #result-bottom td { line-height   :120%;
+                          padding-top   :0.2em;
+                          padding-bottom:0.2em;}
+	    th.result_th1 {width: 3%;}
+      th.result_th2 {width:34%;}
+      th.result_th3 {width:10%;}
+      th.result_th4 {width:10%;}
+      th.result_th5 {width:15%;}
+      th.result_th6 {width:15%;}
+      th.result_th7 {width: 8%;}
+      input {-webkit-appearance: button;font-size:100%;padding:0 10px;margin:0 5px;}
+      img.sort {width:13px;}
+      a.asc {background:url(../image/ue_bg.gif) no-repeat center center;}
+      a.desc {background:url(../image/sita_bg.gif) no-repeat center center;}
+      a.sort {background-size:12px; }
+      a:hover img{
+         opacity:0.0;
+         -moz-opacity:0.0;
+         filter:alpha(opacity = 0);
+      }
+      a:hover img{opacity:0.5;filter:alpha(opacity=50);-ms-filter: “alpha( opacity=50 )”;}
+      span.for-small-display {display:inline;}
+}
+
+/* 以下はPC用（横幅1028px以上の画面に優先的に適用される。） */
+@media print, screen and (min-width: 1028px){
+      h1                { margin          : 0.5em 0 0.5em 10em;
+                          text-align      : center;
+      }
+      h1 span           { margin-left     : 0.5em;
+                          padding-left    : 0.5em;
+                          padding-right   : 0.5em;
+                          font-size       : 70%;
+      }
+      div.header-comment{ float           : right;
+                          margin-right    : 2em;
+                          line-height     : 150%;
+      }
+      div#result-top          　{
+                          width           : 99%;
+                          margin          : 0 auto 0.5em auto;
+      }
+      div#result-top div.row    {
+                          display         : table-row-group;
+      }
+      div#result-top div.td     {
+                          display         : table-cell;
+      }
+      div#result-top div.td inpu{
+                          width           : 90%;
+      }
+      div#result-top div.th     {
+                          display         : table-cell;
+                          background-color: #D7EEFF;
+                          width           : 20%;
+                          min-width       : 12em;
+                          padding-left    : 1em;
+      }
+}
+/* ←PC用スタイルここまで */
+
+/* 以下はタブレット用（横幅861px〜1027pxの画面に優先適用される） */
+@media print, screen and (max-width: 1027px){
+      h1                          { margin        : 0.5em 0 0.5em 0;
+                                    text-align    : center;
+                                    font-size     : 170%;
+      }
+      h1 span                     { font-size     : 80%;
+                                    padding-top   : 0.3em;
+                                    border-bottom : solid 2px;
+      }
+      div                         { font-size     : 100%;
+      }
+      div.header-comment          { width        : 20em;
+                                    margin-left  : auto;
+                                    margin-right : 0.2em;
+                                    line-height  : 100%;
+      }
+      div.header-comment span     { display      : inline !important;}
+
+      /*検索条件入力画面*/
+      div#keyword input           { width        : 40em;
+      }
+      div#keyword,
+      div#bunsyo_grouping,
+      div#bunsyo_hoyuka,
+      div#kessai_kanryo,
+      div#hyoji                   { display      : table;
+                                    margin       : 0 auto;
+                                    width        : 99%;
+      }
+      div#hyoji                   { width        : 98.4%;
+      }
+      div#bunsyo_grouping div div,
+      div#bunsyo_hoyuka div       { display      : table-row-group;
+      }
+      div#bunsyo_grouping div label,
+      div#bunsyo_hoyuka div label { display      : table-cell;
+                                    width        : 11em;
+                                    padding-left : 14em;
+                                    padding-right: 1em;
+                                    text-align   :right;
+      }
+      div#bunsyo_grouping div select,
+      div#bunsyo_hoyuka div select{ display      : table-cell;
+                                    min-width    : 100%;
+                                    text-align   : left;
+      }
+      .red {font-size:100%;}
+
+      /* 検索結果画面の検索条件テーブル */
+      div#result-top {
+         width           : 99%;
+         margin          : 0 0.5%;
+      }
+      div#result-top div.td input{width:90%;}
+      div#result-top div.th{
+         background-color: #D7EEFF;
+         width           : 20% ;
+         min-width       : 12em;
+         padding-left    : 1em;
+      }
+}
+/* 以下は小さめのタブレット（横幅720px〜860pxの画面）用 */
+@media screen and (max-width: 860px) {
+      /*各画面共通*/
+      div.footer div                { margin-bottom : 0.3em; }
+      div.footer span               { display       : inline-block;}
+      div.footer span.block         { display       : block;}
+      div.footer br                 { display       : none; }
+
+      /*検索条件入力画面*/
+      div#keyword .leftspace1       { padding-left : 0em;
+      }
+      div#keyword .leftspace2       { padding-left : 1.0em;
+      }
+      div#keyword input             { width        : 27em;
+      }
+      div#bunsyo_grouping div label,
+      div#bunsyo_hoyuka div label   { padding-left : 5em;
+      }
+      div#kessai_kanryo .inline1    { padding-left : 0em;
+      }
+}
+/* 以下はスマートフォン（横幅321px〜719pxの画面）用 */
+@media screen and (max-width: 719px) {
+      /*各画面共通*/
+      body    { line-height : 1.1em;
+      }
+      h1      { margin      : 0.5em 0 0.3em 0em;
+                text-align  : center;
+                font-size   : 130%;
+      }
+      h1 span { vertical-align: super;
+                border-bottom : solid 2px;
+                font-size     : 90%;
+                margin-left   : 0.5em;
+                padding-top   : 0.3em;
+      }
+      h2      { font-size     : 110% !important;
+                margin-left   : 3px;
+                padding       : .2em 0 .1em .75em;
+                border-left   : 6px solid blue;
+                border-bottom : 1px solid blue;
+      }
+      div.header-comment              { width       : 20em;
+                                        margin-left : auto;
+                                        margin-right: 0.2em;
+                                        line-height : 120%;
+                                        font-size   : 80%;
+      }
+      div.header-comment span         { display     : inline !important;
+      }
+      div.footer div                  { margin-bottom: 0.5em; }
+      div.footer span                 { display     : inline-block;}
+      div.footer span.block           { display     : block;}
+      div.footer br                   { display     : none; }
+
+      /*検索条件入力画面*/
+      div#joken_title .leftspace2     { margin-left : 1em;
+      }
+      div#keyword .leftspace1         { padding-left : 0;
+      }
+      div#keyword .leftspace2         { padding-left : 0;
+      }
+
+      div#keyword label               { display     : block;
+      }
+      div#keyword input               { max-width   : 20em;
+      }
+      div#bunsyo_grouping div div label { display     : block;
+                                          padding     : 0;
+                                          text-align  : left;
+                                          width       : 10em;
+      }
+      div#bunsyo_hoyuka div     label { display     : block;
+                                        padding     : 0;
+                                        text-align  : left;
+                                        width       : auto;
+      }
+      div#bunsyo_grouping div,
+      div#bunsyo_grouping div div,
+      div#bunsyo_hoyuka div           { font-size   : 100%;
+      }
+      div#keyword,
+      div#bunsyo_hoyuka,
+      div#bunsyo_grouping,
+      div#kessai_kanryo,
+      div#hyoji                       { width           : 99%;
+                                        margin          : 0.5em auto 0 auto ;
+      }
+      fieldset.kikan                  { display         : block;
+                                        border-style    : none;
+                                        padding         : 0;
+      }
+      fieldset.kikan .gengo           { padding-left    : 0.5em;
+      }
+      fieldset div.kara               { display         : none;
+      }
+      div#kessai_kanryo span          { margin-left     : 1em;
+      }
+      div#hyoji span                  { display         : block;
+                                        padding-left    : 0.2em;
+      }
+      div.hyoji_jun                   { margin-top      : 0.5em;
+      }
+      div.hyoji_kensu                 { margin          : 0.5em 1em;
+      }
+      span.for-small-display          { display         : block;
+                                        margin-bottom   : 0.5em;
+      }
+      div.submit_bottom               { margin          : 0.5em 0 1em 0;
+                                        text-align      : center;
+      }
+      /* 検索結果画面の検索条件テーブル */
+      div#result-top                  { margin          : 0 2px;
+      }
+      div#result-top div.td input     { width           : 95%;
+                                        min-width       :12em;
+      }
+      div#result-top div.th           { width           : 20%;
+                                        min-width       : 11em;
+                                        padding-left    : 0;
+                                        background-color: #FFFFFF;
+      }
+      img.sort                        { width           :13px;
+                                        height          :11px;
+      }
+      p.result                        { margin-left     : 2px;
+                                        line-height     : 95%;
+                                        padding-top     : 0;
+                                        padding-bottom  : 0;
+      }
+      input                           { font-size       : 100%;
+      }
+      a:hover img                     { opacity         : 0.5;
+                                        filter          : alpha(opacity=50);
+                                        -ms-filter      : “alpha( opacity=50 )”;
+      }
+
+      /*検索結果画面の検索結果一覧テーブル*/
+      table                           { margin-left     : 2px;
+                                        margin-right    : auto;
+                                        border-collapse : collapse;
+                                        empty-cells     : show;
+      }
+      table caption                   { text-align      : left;
+                                        margin-top      : 0.5em;
+      }
+      table#result-bottom th          { white-space     : nowrap ;
+                                        border          : 1px #000000 solid;
+      }
+      table#result-bottom td          { white-space     : normal ;
+                                        border          : 1px #000000 solid;
+      }
+
+      /*検索結果詳細画面*/
+      div#detail                      { display         : block;
+                                        width           : 99%;
+                                        margin          : 0.5em auto;
+      }
+      div#detail div.row ,
+      div#detail div.th  ,
+      div#detail div.td              { display         : block;
+      }
+      div#detail div.row             { margin-top      : 1em;
+      }
+      div#detail div.th              { text-align      : left;
+      }
+      div#detail div.th br           { display         : none;
+      }
+      div#detail div.td              { text-align      : left;
+                                       margin          : 0.2em 0 0 1em ;
+                                       padding         : 0.5em;
+                                       border          : 1px #000000 solid;
+      }
+}/* ←スマートフォン用ここまで */
+/* 小画面スマートフォン（横幅320px以下の画面）用（iPhone5sなど） */
+@media screen and (max-width: 320px) {
+      div                            { font-size             : 100% }
+      legend                         { font-size             : 100% }
+      div#keyword,
+      div#bunsyo_hoyuka,
+      div#bunsyo_grouping,
+      div#kessai_kanryo,
+      div#hyoji                      { font-size             : 90% !important;}
+      div#kessai_kanryo span         { margin-left           : 0.1em }
+      fieldset                       { -webkit-padding-start : 0em;
+                                       -webkit-padding-end   : 0em;}
+}
+
+
+

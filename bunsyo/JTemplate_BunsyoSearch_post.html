@@ -1,0 +1,276 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+    <meta http-equiv="Content-Style-Type" content="text/css">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <meta content="DENY" http-equiv="X-FRAME-OPTIONS">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>横浜市　行政文書目録検索</title>
+    <link type="text/css" href="../css/jstyle.css" rel="stylesheet">
+    <link media="screen,tv,projection,print" type="text/css" href="http://www.city.yokohama.jp/coparts/css/base.css" title="横浜市Webページ共通基本スタイル" rel="Stylesheet">
+    <script type="text/javascript" src="../js/BunsyoSearch.js"></script>
+    <!--style type="text/css">
+    </style-->
+  </head>
+  <body>
+    <p class="skiplink"><a href="#honbun">本文へジャンプ</a></p>
+    <div id="common-header">
+      <span id="common-header-logo">
+        <a href="http://www.city.yokohama.jp/">
+          <img alt="横浜市" height="30" width="224" src="http://www.city.yokohama.jp/coparts/header/hdr03_logo.ja.gif">
+        </a>
+      </span>
+      <span class="common-header-splitter"> - </span>
+      <span id="common-header-navi">
+        <a href="http://www.city.yokohama.jp/">
+          <img alt="トップメニュー" height="30" width="100" src="http://www.city.yokohama.jp/coparts/header/hdr03_top.ja.gif">
+        </a>
+        <span class="common-header-splitter">|</span>
+        <a href="http://www.city.yokohama.jp/search/">
+          <img alt="検索" height="30" width="100" src="http://www.city.yokohama.jp/coparts/header/hdr03_search.ja.gif">
+        </a>
+      </span>
+    </div>
+    <hr>
+    <div class="header-comment">
+      <a href="http://www.city.yokohama.lg.jp/shimin/shiminjoho/kensaku/20160301132738.html">JIS X 8341-3:2010に基づく試験結果</a>
+      <br>
+      <a href="http://www.city.yokohama.lg.jp/shimin/shiminjoho/kensaku/kensakutebiki.html">利用手引</a>
+      <span class="leftspace1">
+      <a href="http://www.city.yokohama.lg.jp/shimin/shiminjoho/kensaku/kensaku-qa.html">よくあるご質問</a>
+      </span>
+      <span class="leftspace1">
+      <a href="http://www.city.yokohama.lg.jp/shimin/shiminjoho/kensaku/itguide.html">開示請求とは</a>
+      </span>
+    </div>
+    <span class="skiplink"><a name="honbun">ここから本文です。</a></span>
+    <h1>行政文書目録検索<span>検索条件入力</span></h1>
+    <hr>
+    <form method="post" action="SearchResult" name="BunsyoSearch" accept-charset="UTF-8">
+      <p><%=hidden_input%>
+      </p>
+      <div id="joken_title">
+        <div class="left">
+          <h2 class="joken">検索条件</h2>
+          <span class="leftspace2 red left">必ずひとつ以上の条件を指定してください。</span>
+        </div>
+      </div>
+      <div id="keyword">
+        <fieldset class="joken">
+          <legend>キーワード</legend>
+          <div>
+            <div>
+              <span class="leftspace1"><label for="keyword1">ＡＮＤ条件　3つまで</label></span>
+              <input type="text" name="AND_SEARCHKEY" value="<%=keyword1%>" id="keyword1">
+            </div>
+            <div>
+              <span class="leftspace2"><label for="keyword2">ＯＲ条件　3つまで</label></span>
+              <input type="text" name="OR_SEARCHKEY" value="<%=keyword2%>" id="keyword2">
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      <div id="bunsyo_hoyuka">
+        <fieldset class="joken">
+          <legend>文書保有課から探す</legend>
+          <div id="cmb_kyoku">
+            <label for="kyokumei">保有局区名</label>
+            <select onChange="jf_cmb('cmb_KYOKU','SYOZOKU_LEVEL','050','BUNRUI_LEVEL','0')" name="cmb_KYOKU" id="kyokumei">
+              <%=cmb_kyoku%>
+            </select>
+          </div>
+          <div id="cmb_bu">
+            <label for="bumei">部名</label>
+            <select onChange="jf_cmb('cmb_BU','SYOZOKU_LEVEL','060','BUNRUI_LEVEL','0')" name="cmb_BU" id="bumei">
+              <%=cmb_bu%>
+            </select>
+          </div>
+          <div id="cmb_ka">
+            <label for="kamei">課名</label>
+            <select name="cmb_KA" id="kamei">
+              <%=cmb_ka%>
+            </select>
+          </div>
+        </fieldset>
+      </div>
+      <div id="bunsyo_grouping">
+        <fieldset class="joken">
+          <legend>文書分類から探す</legend>
+            <div>
+              <div id="cmb_nendo">
+                <label for="nendo">年度</label>
+                <select onChange="jf_cmb('cmb_NENDO','SYOZOKU_LEVEL','040','BUNRUI_LEVEL',0)" name="cmb_NENDO" id="nendo">
+                  <%=cmb_nendo%>
+                </select>
+              </div>
+              <div id="cmb_syubetu">
+                <label for="syubetu">文書分類種別</label>
+                <select onChange="jf_cmb('cmb_SYUBETU','SYOZOKU_LEVEL','040','BUNRUI_LEVEL',1)" name="cmb_SYUBETU" id="syubetu">
+                  <%=cmb_syubetu%>
+                </select>
+              </div>
+            </div>
+            <div>
+              <div id="cmb_large">
+                <label for="daibunrui">大分類（目・局区）</label>
+                <select onChange="jf_cmb('cmb_LARGE','SYOZOKU_LEVEL','040','BUNRUI_LEVEL',2)" name="cmb_LARGE" id="daibunrui">
+                  <%=cmb_large%>
+                </select>
+              </div>
+              <div id="cmb_middle">
+                <label for="chubunrui">中分類（節・課）</label>
+                <select onChange="jf_cmb('cmb_MIDDLE','SYOZOKU_LEVEL','040','BUNRUI_LEVEL',3)" name="cmb_MIDDLE" id="chubunrui">
+                  <%=cmb_middle%>
+                </select>
+              </div>
+              <div id="cmb_small">
+                <label for="syobunrui">小分類（文書分類名）</label>
+                <select name="cmb_SMALL" id="syobunrui">
+                  <%=cmb_small%>
+                </select>
+              </div>
+            </div>
+        </fieldset>
+      </div>
+      <div id="kessai_kanryo">
+        <fieldset class="joken">
+          <legend>供覧・決裁完了年月</legend>
+          <div class="inline1">
+            <fieldset class="kikan">
+              <legend class="margin-b">いつから</legend>
+              <label for="sgen" class="gengo">元号</label>
+              <select onChange="jf_cmbKyouran('S_NENGOU')" name="S_NENGOU" id="sgen">
+                <option value="平成">平成</option>
+              </select>
+              <span class="leftspace2">
+                <label for="snen">年</label>
+                <select name="SYDATE" id="snen">
+                  <%=sydate%>
+                </select>
+                </span>
+              <span class="leftspace2">
+                <label for="smonth">月</label>
+                <select name="SMDATE" id="smonth">
+                  <%=smdate%>
+                </select>
+              </span>
+            </fieldset>
+          </div>
+          <div class="inline1 kara"> ～ </div>
+          <div class="inline1">
+            <fieldset class="kikan">
+              <legend class="margin-b">いつまで</legend>
+              <label for="egen" class="gengo">元号</label>
+              <select onChange="jf_cmbKyouran('E_NENGOU')" name="E_NENGOU" id="egen">
+                <option value="平成">平成</option>
+              </select>
+              <span class="leftspace2">
+                <label for="enen">年</label>
+                <select name="EYDATE" id="enen">
+                  <%=eydate%>
+                </select>
+              </span>
+              <span class="leftspace2">
+                <label for="emonth">月</label>
+                <select name="EMDATE" id="emonth">
+                  <%=emdate%>
+                </select>
+              </span>
+            </fieldset>
+          </div>
+        </fieldset>
+      </div>
+      <div id="hyoji_title"><h2 class="hyoji">検索結果の表示方法</h2></div>
+      <div id="hyoji">
+        <div class="hyoji_key">
+          <fieldset>
+            <legend>並び順の基準（ソートキー）</legend>
+              <span>
+                <input <%=biz_kikou1jun%> value="biz_kikou1jun" name="SORTKEY" type="radio" id="hoyuka">
+                <label for="hoyuka">文書保有課</label>
+              </span>
+              <span class="leftspace1">
+                <input <%=biz_kyoranbi%> value="biz_kyoranbi" name="SORTKEY" type="radio" id=kanryo>
+                <label for="kanryo">供覧・決裁完了年月</label>
+              </span>
+              <span class="leftspace1">
+                <input <%=biz_bunruicd1%> value="biz_bunruicd1" name="SORTKEY" type="radio" id="bunsyo_bunrui">
+                <label for="bunsyo_bunrui">文書分類</label>
+              </span>
+              <span class="leftspace1">
+                <input <%=biz_bunsyomei%> value="biz_bunsyomei" name="SORTKEY" type="radio" id="kenmei">
+                <label for="kenmei">文書件名</label>
+              </span>
+          </fieldset>
+        </div>
+        <div class="hyoji_jun">
+          <fieldset>
+            <legend>並び順（昇順と降順）</legend>
+              <span>
+                <input value="ASCEND" name="SORT" type="radio" <%=ascend%> id="ascend">
+                <label for="ascend">昇順</label>
+              </span>
+              <span class="leftspace2">
+                <input value="DESCEND" name="SORT" type="radio" <%=descend%> id="descend">
+                <label for="descend">降順</label>
+              </span>
+          </fieldset>
+        </div>
+        <div class="hyoji_kensu">
+          <div class="kensu_title"><label for="kensu">表示件数</label></div>
+          <select name="KENSU" id="kensu">
+            <%=kensu%>
+          </select>
+          件
+        </div>
+      </div>
+      <div class="submit_bottom">
+        <input value="検索" name="search" type="submit">
+        <span class="leftspace1">
+        <input onClick="jf_clear()" value="クリア" name="clear" type="button">
+        </span>
+      </div>
+    </form>
+    <hr class="margin-top margin-bottom">
+    <div class="footer">
+    <!-- ここから著作権情報と連絡先 -->
+      <address>
+      <div>
+        <span class="block">
+        横浜市市民局市民情報課
+        </span><span>
+          -
+          2005年9月1日
+          作成
+        </span><span>
+          -
+          2016年03月31日
+          更新
+        </span>
+      </div>
+      <div>
+        <span class="block">
+          ご意見・お問合せ
+        </span><span class="block">
+          - <a href="mailto:sh-shiminjoho&#64;city.yokohama.jp">sh-shiminjoho&#64;city.yokohama.jp</a>
+        </span>
+        <span>
+          - 電話: 045-671-3884
+        </span><span>
+          - FAX: 045-664-7201
+        </span>
+      </div>
+        <span>
+          &copy;1997-2016 City of Yokohama.
+        </span>
+        <span>
+          All rights reserved.
+        </span>
+      </address>
+      <!-- ここまで著作権情報と連絡先 -->
+    </div>
+    <!-- ここまでフッタ部分 -->
+  </body>
+</html>
+

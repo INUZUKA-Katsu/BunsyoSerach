@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+    <meta http-equiv="Content-Style-Type" content="text/css">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <meta content="DENY" http-equiv="X-FRAME-OPTIONS">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>横浜市　行政文書目録検索　エラー画面</title>
+    <link type="text/css" href="../css/jstyle.css" rel="stylesheet">
+    <link media="screen,tv,projection,print" type="text/css" href="http://www.city.yokohama.jp/coparts/css/base.css" title="横浜市Webページ共通基本スタイル" rel="Stylesheet">
+    <script type="text/javascript" src="http://drweb.city.yokohama.lg.jp/yads/js/BunsyoSearch.js"></script>
+    <!--style type="text/css">
+    </style-->
+  </head>
+  <body>
+    <p class="skiplink"><a href="#honbun">本文へジャンプ</a></p>
+    <div id="common-header">
+      <span id="common-header-logo">
+        <a href="http://www.city.yokohama.jp/">
+          <img alt="横浜市" height="30" width="224" src="http://www.city.yokohama.jp/coparts/header/hdr03_logo.ja.gif">
+        </a>
+      </span>
+      <span class="common-header-splitter"> - </span>
+      <span id="common-header-navi">
+        <a href="http://www.city.yokohama.jp/">
+          <img alt="トップメニュー" height="30" width="100" src="http://www.city.yokohama.jp/coparts/header/hdr03_top.ja.gif">
+        </a>
+        <span class="common-header-splitter">|</span>
+        <a href="http://www.city.yokohama.jp/search/">
+          <img alt="検索" height="30" width="100" src="http://www.city.yokohama.jp/coparts/header/hdr03_search.ja.gif">
+        </a>
+      </span>
+    </div>
+    <hr>
+    <div class="header-comment">
+      <a href="http://www.city.yokohama.lg.jp/shimin/shiminjoho/kensaku/20160301132738.html">JIS X 8341-3:2010に基づく試験結果</a>
+      <br />
+      <a href="http://www.city.yokohama.lg.jp/shimin/shiminjoho/kensaku/kensakutebiki.html">利用手引</a>
+      <span class="leftspace1">
+      <a href="http://www.city.yokohama.lg.jp/shimin/shiminjoho/kensaku/kensaku-qa.html">よくあるご質問</a>
+      </span>
+      <span class="leftspace1">
+      <a href="http://www.city.yokohama.lg.jp/shimin/shiminjoho/kensaku/itguide.html">開示請求とは</a>
+      </span>
+    </div>
+    <span class="skiplink"><a name="honbun">ここから本文です。</a></span>
+    <h1>行政文書目録検索<span>エラー</span></h1>
+    <hr>
+    <div class="result_timeout">
+      <h2 class="result">メッセージ</h2>
+      <p class="red strong result_timeout">
+        <%=error_message%>
+      </p>
+    </div>
+    <hr>
+    <div class="submit_bottom">
+      <form method="post" action="SearchResult" name="SearchError" accept-charset="UTF-8">
+        <%=hidden_input%>
+      </form>
+    </div>
+    <hr class="margin-top margin-bottom">
+    <div class="footer">
+    <!-- ここから著作権情報と連絡先 -->
+      <address>
+      <div>
+        <span class="block">
+        横浜市市民局市民情報課
+        </span><span>
+          -
+          2005年9月1日
+          作成
+        </span><span>
+          -
+          2016年03月31日
+          更新
+        </span>
+      </div>
+      <div>
+        <span class="block">
+          ご意見・お問合せ
+        </span><span class="block">
+          - <a href="mailto:sh-shiminjoho&#64;city.yokohama.jp">sh-shiminjoho&#64;city.yokohama.jp</a>
+        </span>
+        <span>
+          - 電話: 045-671-3884
+        </span><span>
+          - FAX: 045-664-7201
+        </span>
+      </div>
+        <span>
+          &copy;1997-2016 City of Yokohama.
+        </span>
+        <span>
+          All rights reserved.
+        </span>
+      </address>
+      <!-- ここまで著作権情報と連絡先 -->
+    </div>
+    <!-- ここまでフッタ部分 -->
+  </body>
+</html>
